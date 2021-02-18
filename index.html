@@ -1,0 +1,121 @@
+<html>
+<head>
+<title>Checkvist v1-4</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="shortcut icon" type="image/ico" href="favicon.ico"/>
+  
+  <style type="text/css"> 
+    body{
+        background: black;
+    }
+.flex-container {
+  /* We first create a flex layout context */
+  display: flex;
+  
+  /* Then we define the flow direction 
+     and if we allow the items to wrap 
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+  flex-flow: row nowrap;
+  
+  /* Then we define how is distributed the remaining space */
+  justify-content: space-evenly;
+  
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  align-items: stretch;
+}
+
+.flex-item {
+  background: darkgray;
+  padding: 5px;
+  width: 100%;
+  height: 96vh;
+  min-height: 400px;
+}
+  </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script type='text/javascript'>
+		function getQueryVariable(variable)
+	{
+		   var query = window.location.search.substring(1);
+		   var vars = query.split("&");
+		   for (var i=0;i<vars.length;i++) {
+				   var pair = vars[i].split("=");
+				   if(pair[0] == variable){return pair[1];}
+		   }
+		   return(false);
+	}
+
+// define a handler
+function doc_keyUp(e) {
+
+    // ctrlKey + shiftKey + keyCode 49 (aka number 1 above the Q)
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 49) {
+        // call your function to do the thing
+        myFunction();
+    }
+}
+// register the handler 
+document.addEventListener('keyup', doc_keyUp, false);
+  </script>
+
+
+  <script>
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.width === "98px") {
+    x.style.width = "100%";
+    x.style.background = "darkgray";
+  } else {
+    x.style.width = "98px";
+    x.style.background = "maroon";
+  }
+}
+</script>
+</head>
+
+<body>
+
+ <script type="text/javascript">
+var vt;
+if(document.location.href.indexOf("vt=") !== -1){
+  document.title=getQueryVariable("vt");
+}
+ </script>
+ 
+  
+<ul class="flex-container">
+              <script type="text/javascript">
+                var v1;
+                var v2;
+                var v3;
+                var v4;
+              if(document.location.href.indexOf("?v") == -1){
+				      document.write('add variables to the url (v1 up to v4): <br><strong>?v1=123456&v2=...</strong>');
+              }
+              if(document.location.href.indexOf("v1=") !== -1){
+				      document.write('<li class="flex-item" id="myDIV" onclick="myFunction()"><iframe scrolling="yes" frameborder="0" style="width: 100%; height: 100%; overflow: hidden;" src="https://beta.checkvist.com/checklists/' + getQueryVariable("v1") + '?widget=true"></iframe></li>');
+              }
+               
+              if(document.location.href.indexOf("v2=") !== -1){
+				      document.write('<li class="flex-item"><iframe scrolling="yes" frameborder="0" style="width: 100%; height: 100%; overflow: hidden;" src="https://beta.checkvist.com/checklists/' + getQueryVariable("v2") + '?widget=true"></iframe></li>');
+              }
+                
+              if(document.location.href.indexOf("v3=") !== -1){
+				      document.write('<li class="flex-item"><iframe scrolling="yes" frameborder="0" style="width: 100%; height: 100%; overflow: hidden;" src="https://beta.checkvist.com/checklists/' + getQueryVariable("v3") + '?widget=true"></iframe></li>');
+              }
+                
+              if(document.location.href.indexOf("v4=") !== -1){
+				      document.write('<li class="flex-item"><iframe scrolling="yes" frameborder="0" style="width: 100%; height: 100%; overflow: hidden;" src="https://beta.checkvist.com/checklists/' + getQueryVariable("v4") + '?widget=true"></iframe></li>');
+              }
+                                
+              </script>
+</ul>
+</body>
